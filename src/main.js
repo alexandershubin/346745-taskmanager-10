@@ -262,7 +262,11 @@ render(taskListElement, createTaskEditTemplate());
 new Array(TASK_COUNT)
 .fill(``)
 .forEach(
+<<<<<<< HEAD
     () => render(taskListElement, createTaskTemplate())
+=======
+  () => render(taskListElement, createTaskTemplate())
+>>>>>>> 180e69f45e23b70b2bc3de2e01b0eb76f1c0cd90
 );
 
 const boardElement = siteMainElement.querySelector(`.board`);
