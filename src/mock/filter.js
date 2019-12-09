@@ -1,5 +1,9 @@
 const filterNames = [`all`, `Overdue`, `Today`, `Favorites`, `Repeating`, `Tags`, `Archive`];
 
+/**
+ *
+ * @return {{name: *, count: *}[]}
+ */
 const generateFilters = () => {
   return filterNames.map((it) => {
     return {

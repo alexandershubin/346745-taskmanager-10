@@ -26,7 +26,6 @@ const Tags = [
 
 const getRandomArrayItem = (array) => {
   const randomIndex = getRandomIntegerNumber(0, array.length);
-
   return array[randomIndex];
 };
 
