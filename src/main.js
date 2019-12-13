@@ -29,3 +29,4 @@ new Array(TASK_COUNT)
 
 const boardElement = siteMainElement.querySelector(`.board`);
 render(boardElement, createLoadMoreButtonTemplate());
+// добавляю коммит
