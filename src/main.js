@@ -1,31 +1,25 @@
-import {createBoardTemplate} from "./components/board";
-import {createFilterTemplate} from "./components/filter";
-import {createLoadMoreButtonTemplate} from "./components/load-more-button";
-import {createTaskEditTemplate} from "./components/task-edit";
-import {createTaskTemplate} from "./components/task";
-import {createSiteMenuBar} from "./components/site-menu";
+import BoardComponent from './components/board.js';
+import BoardController from './controllers/board.js';
+import FilterComponent from './components/filter.js';
+import SiteMenuComponent from './components/site-menu.js';
+import {generateTasks} from './mock/task.js';
+import {generateFilters} from './mock/filter.js';
+import {render, RenderPosition} from './utils/render.js';
 
-const TASK_COUNT = 3;
-
-const render = (container, template, place = `beforeend`) => {
-  container.insertAdjacentHTML(place, template);
-};
+const TASK_COUNT = 22;
 
 const siteMainElement = document.querySelector(`.main`);
-const siteHeaderElement = document.querySelector(`.main__control`);
+const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
-render(siteHeaderElement, createSiteMenuBar());
-render(siteMainElement, createFilterTemplate());
-render(siteMainElement, createBoardTemplate());
+render(siteHeaderElement, new SiteMenuComponent(), RenderPosition.BEFOREEND);
 
-const taskListElement = siteMainElement.querySelector(`.board__tasks`);
-render(taskListElement, createTaskEditTemplate());
+const filters = generateFilters();
+render(siteMainElement, new FilterComponent(filters), RenderPosition.BEFOREEND);
 
-new Array(TASK_COUNT)
-.fill(``)
-.forEach(
-    () => render(taskListElement, createTaskTemplate())
-);
+const boardComponent = new BoardComponent();
+render(siteMainElement, boardComponent, RenderPosition.BEFOREEND);
 
-const boardElement = siteMainElement.querySelector(`.board`);
-render(boardElement, createLoadMoreButtonTemplate());
+const tasks = generateTasks(TASK_COUNT);
+const boardController = new BoardController(boardComponent);
+
+boardController.render(tasks);
