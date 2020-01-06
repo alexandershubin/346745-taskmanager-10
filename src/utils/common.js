@@ -1,3 +1,4 @@
+// подключение библиотеки moment
 import moment from 'moment';
 
 export const formatTime = (date) => {
