@@ -1,8 +1,22 @@
-export const Colors = [`black`, `yellow`, `blue`, `green`, `pink`];
+export const COLOR = {
+  BLACK: `black`,
+  YELLOW: `yellow`,
+  BLUE: `blue`,
+  GREEN: `green`,
+  PINK: `pink`,
+};
 
-export const Days = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
+export const COLORS = [
+  COLOR.BLACK,
+  COLOR.YELLOW,
+  COLOR.BLUE,
+  COLOR.GREEN,
+  COLOR.PINK
+];
 
-export const MonthNames = [
+export const DAYS = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
+
+export const MONTH_NAMES = [
   `January`,
   `February`,
   `March`,
@@ -16,3 +30,13 @@ export const MonthNames = [
   `November`,
   `December`,
 ];
+
+export const FilterType = {
+  ALL: `all`,
+  ARCHIVE: `archive`,
+  FAVORITES: `favorites`,
+  OVERDUE: `overdue`,
+  REPEATING: `repeating`,
+  TAGS: `tags`,
+  TODAY: `today`,
+};
