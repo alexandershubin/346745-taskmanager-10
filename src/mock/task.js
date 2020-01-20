@@ -1,4 +1,4 @@
-import {COLORS} from "../const.js";
+import {COLORS} from '../const.js';
 
 const DescriptionItems = [
   `Изучить теорию`,
@@ -21,16 +21,17 @@ const Tags = [
   `theory`,
   `practice`,
   `intensive`,
-  `keks`,
+  `keks`
 ];
 
 const getRandomArrayItem = (array) => {
   const randomIndex = getRandomIntegerNumber(0, array.length);
+
   return array[randomIndex];
 };
 
 const getRandomIntegerNumber = (min, max) => {
-  return min + Math.floor(max * Math.random());
+  return min + Math.floor((max - min) * Math.random());
 };
 
 const getRandomDate = () => {
@@ -59,6 +60,7 @@ const generateTask = () => {
   const dueDate = Math.random() > 0.5 ? null : getRandomDate();
 
   return {
+    id: String(new Date() + Math.random()),
     description: getRandomArrayItem(DescriptionItems),
     dueDate,
     repeatingDays: dueDate ? DefaultRepeatingDays : generateRepeatingDays(),
